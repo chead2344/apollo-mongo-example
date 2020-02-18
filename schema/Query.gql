@@ -1,4 +1,10 @@
 type Query {
+  "Get an author by their ID"
+  author(id: ID!): Author
+  "Get all authors in the system"
   authors: [Author!]!
+  "Get a bok by its ID"
+  book(id: ID!): Book
+  "Get all books in the system"
   books: [Book!]!
 }

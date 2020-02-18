@@ -55,8 +55,24 @@ export type MutationCreateBookArgs = {
 
 export type Query = {
    __typename?: 'Query',
+  /** Get an author by their ID */
+  author?: Maybe<Author>,
+  /** Get all authors in the system */
   authors: Array<Author>,
+  /** Get a bok by its ID */
+  book?: Maybe<Book>,
+  /** Get all books in the system */
   books: Array<Book>,
+};
+
+
+export type QueryAuthorArgs = {
+  id: Scalars['ID']
+};
+
+
+export type QueryBookArgs = {
+  id: Scalars['ID']
 };
 
 
@@ -133,8 +149,8 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>,
-  Author: ResolverTypeWrapper<IAuthor>,
   ID: ResolverTypeWrapper<Scalars['ID']>,
+  Author: ResolverTypeWrapper<IAuthor>,
   String: ResolverTypeWrapper<Scalars['String']>,
   Book: ResolverTypeWrapper<IBook>,
   Mutation: ResolverTypeWrapper<{}>,
@@ -146,8 +162,8 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Query: {},
-  Author: IAuthor,
   ID: Scalars['ID'],
+  Author: IAuthor,
   String: Scalars['String'],
   Book: IBook,
   Mutation: {},
@@ -176,7 +192,9 @@ export type MutationResolvers<ContextType = IContext, ParentType extends Resolve
 };
 
 export type QueryResolvers<ContextType = IContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  author?: Resolver<Maybe<ResolversTypes['Author']>, ParentType, ContextType, RequireFields<QueryAuthorArgs, 'id'>>,
   authors?: Resolver<Array<ResolversTypes['Author']>, ParentType, ContextType>,
+  book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QueryBookArgs, 'id'>>,
   books?: Resolver<Array<ResolversTypes['Book']>, ParentType, ContextType>,
 };
 
