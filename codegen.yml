@@ -1,0 +1,16 @@
+overwrite: true
+schema: "schema/**/*.gql"
+generates:
+  schema.graphql:
+    plugins:
+      - schema-ast
+  src/generated/graphql.ts:
+    config:
+      contextType: IContext
+      mappers:
+        Author: ../models/Author#IAuthor
+        Book: ../models/Book#IBook
+    plugins:
+      - add: "import IContext from '../../types/IContext';"
+      - "typescript"
+      - "typescript-resolvers"

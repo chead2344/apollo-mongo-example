@@ -1,0 +1,4 @@
+input CreateBookInput {
+  title: String!
+  authorId: ID!
+}
