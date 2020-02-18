@@ -1,0 +1,12 @@
+{
+  "name": "hmpo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Chris Head <chead2344@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "apollo-server": "^2.10.1",
+    "graphql": "^14.6.0"
+  }
+}
