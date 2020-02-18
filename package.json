@@ -1,5 +1,5 @@
 {
-  "name": "hmpo",
+  "name": "apollo-mongo-example",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Chris Head <chead2344@gmail.com>",
